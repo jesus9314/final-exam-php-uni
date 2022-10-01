@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('precio',5,2);
             $table->string('destino',50);
             $table->date('fechaviaje');
-            $table->integer('asiento')->unique();
+            $table->integer('asiento');
             $table->timestamps();
         });
     }

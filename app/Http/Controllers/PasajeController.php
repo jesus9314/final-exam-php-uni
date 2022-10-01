@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePasaje;
 use App\Models\Pasaje;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PasajeController extends Controller
      */
     public function index()
     {
-        $pasajes = Pasaje::orderBy('id')->paginate(10);
+        $pasajes = Pasaje::orderBy('id','desc')->paginate(10);
         return view('pasajes.index',compact('pasajes'));
     }
 
@@ -25,7 +26,7 @@ class PasajeController extends Controller
      */
     public function create()
     {
-        //
+        return view('pasajes.create');
     }
 
     /**
@@ -34,9 +35,10 @@ class PasajeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePasaje $request)
     {
-        //
+        $pasaje = Pasaje::create($request->all());
+        return redirect()->route('pasajes.index');
     }
 
     /**
@@ -56,9 +58,9 @@ class PasajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pasaje $pasaje)
     {
-        //
+        return view('pasajes.edit', compact('pasaje'));
     }
 
     /**
@@ -68,9 +70,10 @@ class PasajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePasaje $request, Pasaje $pasaje)
     {
-        //
+        $pasaje->update($request->all());
+        return redirect()->route('pasajes.index');
     }
 
     /**
@@ -79,8 +82,9 @@ class PasajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pasaje $pasaje)
     {
-        //
+        $pasaje->delete();
+        return redirect()->route('pasajes.index');
     }
 }
