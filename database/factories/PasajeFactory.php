@@ -25,7 +25,7 @@ class PasajeFactory extends Factory
             'precio' =>fake()->randomFloat(2, 100,999),
             'destino' =>fake()->city(),
             'fechaviaje' =>fake()->dateTimeBetween('now', '+1 month'),
-            'asiento'=> fake()->unique()->numberBetween(0,100)
+            'asiento'=> fake()->unique()->numberBetween(1,100)
         ];
     }
 }

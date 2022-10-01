@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasaje;
 use Illuminate\Http\Request;
 
 class PasajeController extends Controller
@@ -13,7 +14,8 @@ class PasajeController extends Controller
      */
     public function index()
     {
-        echo 'Probando';
+        $pasajes = Pasaje::orderBy('id')->paginate(10);
+        return view('pasajes.index',compact('pasajes'));
     }
 
     /**
