@@ -8,29 +8,29 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>DNI</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Precio</th>
-                <th>Destino</th>
-                <th>Fecha del Viaje</th>
-                <th>Asiento</th>
-                <th>Acciones</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">DNI</th>
+                <th class="text-center">Nombres</th>
+                <th class="text-center">Apellidos</th>
+                <th class="text-center">Precio</th>
+                <th class="text-center">Destino</th>
+                <th class="text-center">Fecha del Viaje</th>
+                <th class="text-center">Asiento</th>
+                <th class="text-center">Acciones</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
             @foreach ($pasajes as $p)
                 <tr>
-                    <td>{{ $p->id }}</td>
-                    <td>{{ $p->dni }}</td>
-                    <td>{{ $p->nombres }}</td>
-                    <td>{{ $p->apellidos }}</td>
-                    <td>{{ $p->precio }}</td>
-                    <td>{{ $p->destino }}</td>
-                    <td>{{ $p->fechaviaje }}</td>
-                    <td>{{ $p->asiento }}</td>
-                    <td class="d-flex ">
+                    <td class="text-center">{{ $p->id }}</td>
+                    <td class="text-center">{{ $p->dni }}</td>
+                    <td class="text-center">{{ $p->nombres }}</td>
+                    <td class="text-center">{{ $p->apellidos }}</td>
+                    <td class="text-center">{{ $p->precio }}</td>
+                    <td class="text-center">{{ $p->destino }}</td>
+                    <td class="text-center">{{ $p->fechaviaje }}</td>
+                    <td class="text-center">{{ $p->asiento }}</td>
+                    <td class="d-flex gap-1 justify-content-center">
                         <a class="btn btn-success" title="Editar" href="{{ route('pasajes.edit', $p) }}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
